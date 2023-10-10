@@ -1,0 +1,23 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+
+  - name: install python packages
+    package:
+      name:
+        - python3-pip
+        - python3-pil
+        - python3-numpy
+      state: latest
+      update_cache: yes
+    when: ansible_distribution not in ["Ubuntu", "Kali GNU/Linux"]
+
+  - name: install spidev
+    apt:
+      name: "{{spidev_pkg}}"
+      state: latest
+      update_cache: yes
+    when: ansible_distribution_version == "Raspbian GNU/Linux"
+

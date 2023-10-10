@@ -1,0 +1,27 @@
+---
+
+  - hosts: all
+    become: true
+    pre_tasks:
+
+    - name: install unpackers
+      package:
+        name:
+          - unzip
+#          - gtar
+        state: latest
+        update_cache: yes
+
+  - hosts: all
+    become: true
+    tasks:
+
+    - name: install splunk
+      tags: splunk
+      unarchive:
+        src: https://download.splunk.com/products/universalforwarder/releases/8.1.9/linux/splunkforwarder-8.1.9-a16db3287b56-Linux-arm.tgz
+        dest: "{{ home_dir }}"
+        remote_src: yes
+        mode: 0755
+        owner: root
+        group: root
