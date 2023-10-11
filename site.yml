@@ -1,0 +1,76 @@
+---
+
+- hosts: all
+  become: true
+  roles:
+    - base
+
+- hosts: honeypot # only for hosts from matched group from inventory
+  become: true  # execute as root
+  roles:
+    - honey_servers
+
+- hosts: CTF_lab
+  become: true
+  roles:
+    - hacking_labs
+
+- hosts: web_server
+  become: true
+  roles:
+    - web_servers
+
+#  - name: install updates
+#    tags: always  # custom tags used to call specific plays
+#    apt:
+      #update_only: yes # if package is already installed, update it
+#      upgrade: dist  # eq to 'sudo apt upgrade'
+#      update_cache: yes  # eq to 'sudo apt update'
+#    when: ansible_distribution == "Ubuntu"  # only for matching distros
+
+- hosts: honeypot
+  become: true
+  tasks:
+
+  - name: install python packages
+    tags: raspbian,python
+    package:
+      name:
+        - python3-pip
+        - python3-pil
+        - python3-numpy
+      state: latest  # install latest package
+      update_cache: yes
+    when: ansible_distribution not in ["Ubuntu", "Kali GNU/Linux"]  # only hosts not in array
+
+#  - name: install spidev
+#    tags: raspbian,spidev
+#    apt:
+#      name: "{{spidev_pkg}}"  # variable for package, defined in inventory
+#      state: latest
+#      update_cache: yes
+#    when: ansible_distribution_version == "Raspbian GNU/Linux"
+
+  - name: copy file # copying files
+    tags: test
+    copy:
+      src: /home/guru/test
+      dest: /home/guru/test-succ
+      owner: guru
+      group: guru
+
+  - name: change value in file
+    tags: file
+    lineinfile:
+      path: /home/guru/test
+      regexp: '^dupka'
+      line: dupcia
+#    when: ansible_distribution == "Raspbian GNU/Linux"
+    register: pizza
+
+  - name: restart splunk
+    tags: splunk
+    service:
+      name: splunkd
+      state: restarted
+    when: pizza.changed

@@ -1,0 +1,5 @@
+# simple playbook with one play is called taskbook
+- name: add ssh key for ansible
+  authorized_key:
+    user: ansible
+    key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAII2alCv9+Nonraq+mG1bJVSdDZrY8ryFUdzBVtp9Db9W ansible"

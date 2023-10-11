@@ -1,0 +1,6 @@
+- name: install rdp client
+  tags: rdp
+  apt:
+    name: xrdp
+    state: latest
+    update_cache: yes
