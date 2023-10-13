@@ -1,0 +1,56 @@
+---
+
+  - hosts: all
+    become: true
+    pre_tasks:
+
+    - name: install updates
+      tags: always
+      apt:
+        upgrade: dist
+        update_cache: yes
+      changed_when: false
+
+    - name: install unpackers
+      tags: unzip,gtar
+      package:
+        name:
+          - unzip
+#          - gtar
+        state: latest
+        update_cache: yes
+
+  - hosts: all
+    become: true
+    tasks:
+
+    - name: install splunk for armv7l arch (rpis 3b/Z2)
+      tags: splunk
+      unarchive:
+        src: https://download.splunk.com/products/universalforwarder/releases/8.1.9/linux/splunkforwarder-8.1.9-a16db3287b56-Linux-arm.tgz
+        dest: "{{ home_dir }}"
+        remote_src: yes
+        mode: 0755
+        owner: root
+        group: root
+      when: ansible_architecture == "armv7l"
+
+    - name: install splunk for 64-bit arch
+      tags: splunk
+      unarchive:
+        src: https://download.splunk.com/products/universalforwarder/releases/9.1.1/linux/splunkforwarder-9.1.1-64e843ea36b1-Linux-x86_64.tgz
+        dest: "{{ home_dir }}"
+        remote_src: yes
+        mode: 0755
+        owner: root
+        group: root
+      when: ansible_architecture == "aarch64"
+
+    - name: install defenses
+      tags: snort,firewalld
+      apt:
+        name:
+          - snort
+          - firewalld
+        state: latest
+        update_cache: yes

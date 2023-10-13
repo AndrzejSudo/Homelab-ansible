@@ -1,5 +1,31 @@
-# simple playbook with one play is called taskbook
-- name: add ssh key for ansible
-  authorized_key:
-    user: ansible
-    key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAII2alCv9+Nonraq+mG1bJVSdDZrY8ryFUdzBVtp9Db9W ansible"
+---
+
+#- hosts: all
+#  become: true
+#  tasks:
+
+  - name: install python packages and dependencies
+    package:
+      name:
+        - python3-pip
+        - python3-pil
+        - python3-numpy
+        - libraspberrypi-bin
+      state: latest
+      update_cache: yes
+#    when: ansible_distribution not in ["Ubuntu", "Kali GNU/Linux"]
+
+#  - name: install and upgrade pip
+#    pip:
+#      name: pip
+#      extra_args: --upgrade
+#      executable: pip3
+
+  - name: install pip modules
+    tags: spidev,GPIO
+    pip:
+      name:
+        - RPi.GPIO
+        - spidev
+#    when: ansible_distribution_version == "Raspbian GNU/Linux"
+

@@ -28,20 +28,20 @@
 #      update_cache: yes  # eq to 'sudo apt update'
 #    when: ansible_distribution == "Ubuntu"  # only for matching distros
 
-- hosts: honeypot
+- hosts: non
   become: true
   tasks:
 
-  - name: install python packages
-    tags: raspbian,python
-    package:
-      name:
-        - python3-pip
-        - python3-pil
-        - python3-numpy
-      state: latest  # install latest package
-      update_cache: yes
-    when: ansible_distribution not in ["Ubuntu", "Kali GNU/Linux"]  # only hosts not in array
+#  - name: install python packages
+#    tags: raspbian,python
+#    package:
+#      name:
+#        - python3-pip
+#        - python3-pil
+#        - python3-numpy
+#      state: latest  # install latest package
+#      update_cache: yes
+#    when: ansible_distribution not in ["Ubuntu", "Kali GNU/Linux"]  # only hosts not in array
 
 #  - name: install spidev
 #    tags: raspbian,spidev
@@ -51,26 +51,26 @@
 #      update_cache: yes
 #    when: ansible_distribution_version == "Raspbian GNU/Linux"
 
-  - name: copy file # copying files
-    tags: test
-    copy:
-      src: /home/guru/test
-      dest: /home/guru/test-succ
-      owner: guru
-      group: guru
+#  - name: copy file # copying files
+#    tags: test
+#    copy:
+#      src: /home/guru/test
+#      dest: /home/guru/test-success
+#      owner: guru
+#      group: guru
 
   - name: change value in file
     tags: file
     lineinfile:
       path: /home/guru/test
-      regexp: '^dupka'
-      line: dupcia
+      regexp: '^test'
+      line: test-cpl
 #    when: ansible_distribution == "Raspbian GNU/Linux"
     register: pizza
 
-  - name: restart splunk
-    tags: splunk
-    service:
-      name: splunkd
-      state: restarted
-    when: pizza.changed
+#  - name: restart splunk
+#    tags: splunk
+#    service:
+#      name: splunkd
+#      state: restarted
+#    when: pizza.changed

@@ -1,0 +1,14 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+
+  - name: install resource monitors
+    tags: glances,htop
+    apt:
+      name:
+        - htop
+        - glances
+      state: latest
+      update_cache: yes

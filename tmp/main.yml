@@ -1,0 +1,14 @@
+- name: add ssh key for ansible
+  authorized_key:
+    user: ansible
+    key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAII2alCv9+Nonraq+mG1bJVSdDZrY8ryFUdzBVtp9Db9W ansible"
+
+- name: generate sshd_config from template
+  tags: ssh
+  template:
+    src: "{{ ssh_template }}"
+    dest: /etc/ssh/sshd_config
+    owner: root
+    group: root
+    mode: 0644
+  notify: restard_sshd

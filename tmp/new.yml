@@ -1,0 +1,6 @@
+---
+
+- hosts: honeypot
+  become: true
+  roles:
+    - honey_servers

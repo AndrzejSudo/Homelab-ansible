@@ -1,11 +1,11 @@
 [web_server]
-192.168.0.31 ansible_user=ubuntu spidev_pkg=spidev home_dir=/home/ubuntu
+192.168.0.31 ansible_user=ubuntu home_dir=/home/ubuntu
 
 [CTF_lab]
-192.168.0.101 ansible_user=kali spidev_pkg=spidev home_dir=/home/kali
+192.168.0.101 ansible_user=kali home_dir=/home/kali
 
 [honeypot]
-192.168.0.234 ansible_user=guru spidev_pkg=spidev home_dir=/home/guru
+192.168.0.234 ansible_user=guru home_dir=/home/guru
 
-[thin_client]
-192.168.0.134 ansible_user=pi spidev_pkg=spidev home_dir=/home/pi
+[NAS]
+192.168.0.143 ansible_user=pi home_dir=/home/pi

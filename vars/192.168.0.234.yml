@@ -1,0 +1,4 @@
+splunk_package: splunk
+firewalld_package: firewalld
+ssh_users: "guru"
+ssh_template_file: sshd_config_ubuntu.j2

@@ -1,0 +1,26 @@
+---
+
+- hosts: all
+  become: true
+  roles:
+    - base
+
+- hosts: honeypot
+  become: true
+  roles:
+    - honey_servers
+
+- hosts: CTF_lab
+  become: true
+  roles:
+    - hacking_labs
+
+- hosts: web_server
+  become: true
+  roles:
+    - web_servers
+
+- hosts: NAS
+  become: true
+  roles:
+    - nas

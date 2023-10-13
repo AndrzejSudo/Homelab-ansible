@@ -1,0 +1,4 @@
+nginx_package: nginx
+ufw_package: ufw
+ssh_users: "guru"
+ssh_template_file: sshd_config_ubuntu.j2

@@ -4,4 +4,11 @@
     name: psad
     state: latest
     update_cache: yes
+    notify: restart_splunk
   when: ansible_distribution == "Raspbian GNU/Linux"
+
+#- name: update and upgrade
+#  apt:
+#    upgrade: dist
+#    update_cache: yes
+
