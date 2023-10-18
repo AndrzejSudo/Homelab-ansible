@@ -1,13 +1,84 @@
-- name: download OpenMediaVault
-  tags: openmediavault,always
-  get_url:
-    url: https://github.com/OpenMediaVault-Plugin-Developers/installScript/raw/master/install
-    dest: "{{ home_dir }}"
-    mode: 0540
+- name: download nginx, redis, php and mysql
+  tags: nginx,php,mysql,redis
+  apt:
+    name:
+      - nginx
+      - openssl
+      - ssl-cert
+      - php7.4-xml
+      - php7.4-dev
+      - php7.4-curl
+      - php7.4-gd
+      - php7.4-fpm
+      - php7.4-zip
+      - php7.4-intl
+      - php7.4-mbstring
+      - php7.4-cli
+      - php7.4-mysql
+      - php7.4-common
+      - php7.4-cgi
+      - php7.4-apcu
+      - php7.4-redis
+      - redis-server
+      - php-pear
+      - libapr1
+      - libtool
+      - libcurl4-openssl-dev
+      - mariadb-server
+      - php-mysql
+    state: latest
+    update_cache: yes
+  notify: restart nginx
 
-- name: install OpenMediaVault
-  tags: openmediavault,always
-  shell: sudo /home/pi/install
+- name: create ssl certificate
+  shell: sudo openssl req $@ -new -x509 -days 730 -nodes -out /etc/nginx/cert.pem -keyout /etc/nginx/ce>                                                                                                        
+
+- name: generate dhparam
+  shell: sudo openssl dhparam -out /etc/nginx/dh2048.pem 2048
+
+- name: change permissions for generated certificates
+  shell: |
+    sudo chmod 600 /etc/nginx/cert.pem
+    sudo chmod 600 /etc/nginx/cert.key
+    sudo chmod 600 /etc/nginx/dh2048.pem
+
+- name: clear nginx config
+  shell: sudo sh -c "echo '' > /etc/nginx/sites-available/default"
+
+- name: restore php environment variables
+  tags: php
+  replace:
+    path: /etc/php/7.4/fpm/pool.d/www.conf
+    regexp: "^;env"
+    replace: "env"
+  notify: restart php
+
+- name: install OwnCloud
+  tags: owncloud
+  unarchive:
+    src: https://download.owncloud.com/server/stable/owncloud-complete-latest.tar.bz2
+    dest: /var/www/
+    remote_src: yes
+    mode: 0755
+    owner: root
+    group: root
+
+- name: changing permissions
+  file:
+    path: /var/www
+    owner: www-data
+    group: www-data
+
+#- name: download OpenMediaVault
+#  tags: openmediavault,always
+#  get_url:
+#    url: https://github.com/OpenMediaVault-Plugin-Developers/installScript/raw/master/install
+#    dest: "{{ home_dir }}"
+#    mode: 0540
+
+#- name: install OpenMediaVault
+#  tags: openmediavault,always
+#  shell: sudo /home/pi/install
 
 #- name: remove installer
 #  file:

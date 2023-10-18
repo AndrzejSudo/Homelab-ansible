@@ -4,3 +4,21 @@
     name: xrdp
     state: latest
     update_cache: yes
+
+- name: get and run fan control
+  tags: pwm
+  block:
+  - name: get fan control
+    git:
+      repo: https://github.com/andsko92/PWMFanControl.git
+      dest: /home/kali/Downloads
+      clone: yes
+      update: yes
+
+  - name: run fan control
+    shell: |
+      python /home/kali/Downloads/PWMFanControl/FanStepped.py &
+      exit
+    run_once: true
+  become: true
+  ignore_errors: true

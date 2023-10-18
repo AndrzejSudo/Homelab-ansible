@@ -1,4 +1,9 @@
-- name: restart_splunk
+- name: restart firewalld
+  service:
+    name: firewalld
+    state: restarted
+
+- name: restart splunkd
   service:
     name: splunkd
     state: restarted

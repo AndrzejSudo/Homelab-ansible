@@ -2,10 +2,10 @@
 192.168.0.31 ansible_user=ubuntu home_dir=/home/ubuntu
 
 [CTF_lab]
-192.168.0.101 ansible_user=kali home_dir=/home/kali
+192.168.0.101 ansible_user=kali home_dir=/home/kali/
 
 [honeypot]
-192.168.0.234 ansible_user=guru home_dir=/home/guru
+192.168.0.234 ansible_user=guru home_dir=/home/guru/
 
 [NAS]
-192.168.0.143 ansible_user=pi home_dir=/home/pi
+192.168.0.143 ansible_user=guru home_dir=/home/guru/

@@ -6,3 +6,42 @@
     update_cache: yes
 #  when: ansible_distribution == "Ubuntu"
   notify: restart_nginx
+
+- name: get website
+  become: no
+  tags: website
+  vars:
+    repo: https://github.com/andsko92/My-website.git
+  git:
+    repo: "{{ repo }}"
+    dest: "{{ home_dir }}/My-website"
+    clone: yes
+    update: yes
+
+- name: copy to nginx dir
+# vars:
+#   repo_name: "{{ repo.rsplit('/', 1)[-1].split('.', 1)[0] }}"
+  copy:
+    src: "{{ home_dir }}/My-website/"
+    dest: /var/www/html2/
+    remote_src: yes
+    directory_mode: yes
+
+- name: get no-ip dynamic dns update client
+  tags: duc
+  become: no
+  unarchive:
+    src: https://www.noip.com/client/linux/noip-duc-linux.tar.gz
+    dest: "{{ home_dir }}"
+    remote_src: yes
+    owner: ubuntu
+    group: ubuntu
+    mode: 0750
+
+- name: build duc
+  become: yes
+  tags: duc
+  make:
+    chdir: "{{ home_dir }}/noip-2.1.9-1"
+    target: install
+

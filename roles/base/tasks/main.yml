@@ -21,11 +21,11 @@
 #      extra_args: --upgrade
 #      executable: pip3
 
-  - name: install pip modules
-    tags: spidev,GPIO
-    pip:
-      name:
-        - RPi.GPIO
-        - spidev
+#  - name: install pip modules
+#    tags: spidev,GPIO
+#    pip:
+#      name:
+#        - RPi.GPIO
+#        - spidev
 #    when: ansible_distribution_version == "Raspbian GNU/Linux"
 

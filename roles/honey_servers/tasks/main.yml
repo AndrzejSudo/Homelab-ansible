@@ -4,11 +4,41 @@
     name: psad
     state: latest
     update_cache: yes
-    notify: restart_splunk
+    notify:
+      - restart firewalld
+      - restart splunkd
   when: ansible_distribution == "Raspbian GNU/Linux"
 
-#- name: update and upgrade
-#  apt:
-#    upgrade: dist
-#    update_cache: yes
+- name: get listener
+  become: no
+  git:
+    repo: https://github.com/andsko92/HoneyServer.git
+    dest: "{{ home_dir }}/HomeServer/"
+    clone: yes
+    update: yes
+
+- name: copy listener to bin
+#  become: yes
+  copy:
+    src: "{{ home_dir }}/HoneyServer/honey.py"
+    dest: /bin
+    remote_src: yes
+    mode: a+x
+    owner: root
+    group: root
+
+- name: add listener to crontab
+  cron:
+    name: listener
+    minute: 5
+    hour: 0
+    job: "/usr/bin/python3 honey.py"
+
+
+#- name: run listener
+#  shell: |
+#    python "{{ home_dir }}/HomeServer/honey.py"
+#    exit
+#  run_once: true
+
 
