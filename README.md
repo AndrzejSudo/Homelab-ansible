@@ -3,10 +3,14 @@ Ansible homelab
 
 <img align="left" src="img/homelab.jpg" width="300"> Playbooks, inventories and config files used with Ansible to manage my small homelab.
 This is still ongoing project and currently I'm waiting for more equipment to expand my network. 
-Currently all services are running on different Raspberry Pi devices:
-
+Currently all services are running on multiple Raspberry Pi devices:
+- Honeypot
+- Network-Attached Storage
+- Web server
+- CTF lab 
 
 ------------
+
 
 - Honeypot (RPi Zero 2)		- Ubuntu server connected to Internet to catch common and automated scans or indicators of compromise. Runs listener that spoof signatures and keeps open ports for FTP, SSH, Telnet, VNC, RDP protocols.
   
@@ -23,3 +27,7 @@ On average, honeypot detects approximately 20000 malicious activities per day wi
 - NAS (RPi 3B) 		- Hosting ownCloud as private network-attached storage server, accessible within my local network. 
 
 ![nas](img/nas.jpg?raw=true "nas")
+
+------------
+
+tbd...
