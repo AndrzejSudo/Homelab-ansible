@@ -8,7 +8,6 @@ Currently all services are running on multiple Raspberry Pi devices:
   - Network-Attached Storage
   - Web server
   - CTF lab
-    
 More about them:
 <br clear="tight"/>
 ------------
