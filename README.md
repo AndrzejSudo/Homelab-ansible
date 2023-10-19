@@ -2,7 +2,8 @@ Ansible homelab
 ==================
 
 <img align="left" src="img/homelab.jpg" width="300"> Playbooks, inventories and config files used with Ansible to manage my small homelab.
-This is still ongoing project and currently I'm waiting for more equipment to expand my network. Currently all services are running on different Raspberry Pi devices:
+This is still ongoing project and currently I'm waiting for more equipment to expand my network. 
+Currently all services are running on different Raspberry Pi devices:
 
 
 ------------
