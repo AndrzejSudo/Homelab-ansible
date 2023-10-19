@@ -1,4 +1,4 @@
-<img align="right" src="img/homelab.jpg" width="220">  Ansible homelab
+<img align="right" src="img/homelab.jpg" width="220">  Ansible managed homelab
 ==================
 
 Playbooks, inventories and config files used with Ansible to manage my small homelab.
