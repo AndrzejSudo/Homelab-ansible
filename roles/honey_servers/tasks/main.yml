@@ -13,7 +13,7 @@
   become: no
   git:
     repo: https://github.com/andsko92/HoneyServer.git
-    dest: "{{ home_dir }}/HomeServer/"
+    dest: "{{ home_dir }}/HoneyServer/"
     clone: yes
     update: yes
 

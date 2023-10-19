@@ -13,7 +13,7 @@
 - hosts: CTF_lab
   become: true
   roles:
-    - hacking_labs
+    - ctf_labs
 
 - hosts: web_server
   become: true
