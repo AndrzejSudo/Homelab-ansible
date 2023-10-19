@@ -1,7 +1,7 @@
 Ansible homelab
 ==================
 
-Playbooks, inventories and config files used with Ansible to manage my small homelab.![homelab](img/homelab.jpg | width=300) This is still ongoing project and currently I'm waiting for more equipment to expand my network.
+Playbooks, inventories and config files used with Ansible to manage my small homelab.![homelab](img/homelab.jpg) This is still ongoing project and currently I'm waiting for more equipment to expand my network.
 Currently all services are running on different Raspberry Pi devices:
 
 ------------
@@ -9,6 +9,7 @@ Currently all services are running on different Raspberry Pi devices:
 - Honeypot (RPi Zero 2)		- Ubuntu server connected to Internet to catch common and automated scans or indicators of compromise. Runs listener that spoof signatures and keeps open ports for FTP, SSH, Telnet, VNC, RDP protocols.
 
 ![ports](img/honey3.jpg?raw=true "open ports")
+
 Configured PSAD and Snort in IDS mode, logs any attacks attempts, while Splunk forwarder sends logs to indexer hosted on my PC.
 On average, honeypot detects approximately 20000 malicious activities per day with SSH password spraying attack on the lead. Most attacks come from China, United Kingdom and India.
 ![events1](img/honey1.jpg?raw=true "events1")
