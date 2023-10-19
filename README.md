@@ -1,14 +1,14 @@
-Ansible homelab
+<img align="left" src="img/homelab.jpg" width="200">  Ansible homelab
 ==================
 
-<img align="right" src="img/homelab.jpg" width="200"> Playbooks, inventories and config files used with Ansible to manage my small homelab.
+Playbooks, inventories and config files used with Ansible to manage my small homelab.
 This is still ongoing project and currently I'm waiting for more equipment to expand my network. 
 Currently all services are running on multiple Raspberry Pi devices:
   - Honeypot
   - Network-Attached Storage
   - Web server
   - CTF lab 
-<br clear="right"/>
+<br clear="left"/>
 
 ------------
 
