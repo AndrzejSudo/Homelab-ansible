@@ -9,6 +9,7 @@ Currently all services are running on multiple Raspberry Pi devices:
   - Web server
   - CTF lab 
 <br clear="tight"/>
+More about them:
 
 ------------
 
