@@ -23,11 +23,15 @@ More about them:
 ![events1](img/honey1.jpg?raw=true "events1")
 ![events2](img/honey2.jpg?raw=true "events2")
 
+
+
 ------------
 
 - NAS (RPi 3B) 		- Hosting ownCloud as private network-attached storage server, accessible within my local network. 
 
 ![nas](img/nas.jpg?raw=true "nas")
+
+
 
 ------------
 
