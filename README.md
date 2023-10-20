@@ -5,8 +5,8 @@ Playbooks, inventories and config files used with Ansible to manage my small hom
 This is still ongoing project and currently I'm waiting for more equipment to expand my network. 
 Currently all services are running on multiple Raspberry Pi devices:
   - Honeypot
-  - Network-Attached Storage
   - Web server
+  - Network-Attached Storage
   - CTF lab
     
 More about them:
@@ -24,10 +24,9 @@ More about them:
 ![events2](img/honey2.jpg?raw=true "events2")
 
 
-
 ------------
 
-- NAS (RPi 3B) 		- Hosting ownCloud as private network-attached storage server, accessible within my local network. 
+- Web server (RPi Zero 2) 		- Nginx server hosting my website, open to public. Firewalld, Snort and Splunk configured for security, log aggregation and traffic analizing. SSL certificates installed, authentication and content caching configured.
 
 ![nas](img/nas.jpg?raw=true "nas")
 
@@ -35,4 +34,14 @@ More about them:
 
 ------------
 
-tbd...
+- NAS (RPi 3B) 		- Hosting ownCloud as private network-attached storage server, accessible within my local network. Due to attached weak HDD, currently it only acts as private repo for all of my projects. 
+
+![nas](img/nas.jpg?raw=true "nas")
+
+
+
+------------
+
+- CTF lab (RPi 4B)    - Kali Linux machine for solving CTF challenges, configured for remote access via RDP or VNC. Firewalld, Snort and Splunk have been configured for additional security.
+
+![ctf](img/ctf.jpg?raw=true "ctf")
