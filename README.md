@@ -28,7 +28,7 @@ More about them:
 
 - Web server (RPi Zero 2) 		- Nginx server hosting my website, open to public. Firewalld, Snort and Splunk configured for security, log aggregation and traffic analizing. SSL certificates installed, authentication and content caching configured.
 
-![nas](img/nas.jpg?raw=true "nas")
+![web](img/web.jpg?raw=true "web")
 
 
 
