@@ -16,11 +16,7 @@ More about them:
 
 <img align="right" src="img/honey3.jpg">
 
-- Honeypot (RPi Zero 2)		- Ubuntu server connected to Internet to catch common and automated scans or indicators of compromise. Runs listener that spoof signatures and keeps open ports for FTP, SSH, Telnet, VNC, RDP protocols.
-
-Configured PSAD and Snort in IDS mode, logs any attacks attempts, while Splunk forwarder sends logs to indexer hosted on my PC.
-On average, honeypot detects approximately 20000 malicious activities per day with SSH password spraying attack on the lead. 
-Most attacks come from China, United Kingdom and India.
+- Honeypot (RPi Zero 2)		- Ubuntu server connected to Internet to catch common and automated scans or indicators of compromise. Runs listener that spoof signatures and keeps open ports for FTP, SSH, Telnet, VNC, RDP protocols. Configured PSAD and Snort in IDS mode, logs any attacks attempts, while Splunk forwarder sends logs to indexer hosted on my PC. On average, honeypot detects approximately 20000 malicious activities per day with SSH password spraying attack on the lead. Most attacks come from China, United Kingdom and India.
 
 <br clear="right"/>
 
