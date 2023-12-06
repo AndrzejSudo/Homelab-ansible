@@ -3,7 +3,7 @@ Ansible managed homelab
 ![homelab](img/homelab2.jpg?raw=true "homelab")  
 Playbooks, inventories and config files used with Ansible to manage my small homelab.
 This is still ongoing project and currently I'm waiting for more equipment to expand my network.
-For now I've used Cisco switch and routers to segment my network. I also created my own UTP patchcords and crimped RJ45 connectors according to T568B standard.
+For now I've used Cisco Catalyst 2940 switch and C888EA, 1812 routers to segment my network. I also created my own UTP patchcords and crimped RJ45 connectors according to T568B standard.
 Currently all services are running on multiple Raspberry Pi devices:
   - Honeypot
   - Web server
