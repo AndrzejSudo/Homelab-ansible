@@ -55,7 +55,7 @@ More about them:
 
 - Tor router (RPi 3B)    - Proxy router for evading pervasive surveillance and hidding my activities inside tor network that utilizes onion routing. Using Nyx for monitoring Tor network status and traffic.
 
-![tor](img/tor.JPG?raw=true "tor")
+![tor](img/tor.jpg?raw=true "tor")
 
 
 
@@ -63,4 +63,4 @@ More about them:
 
 - Pi-hole (RPi Zero)    - Private DNS server that blocks internet advertisements and tracking domains.
 
-![tor](img/pihole.JPG?raw=true "tor")
+![pihole](img/pihole.jpg?raw=true "pihole")
