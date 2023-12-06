@@ -1,13 +1,16 @@
-<img align="right" src="img/homelab.jpg" width="230">  Ansible managed homelab
+Ansible managed homelab
 ==================
-
+![homelab](img/homelab2.jpg?raw=true "homelab")  
 Playbooks, inventories and config files used with Ansible to manage my small homelab.
-This is still ongoing project and currently I'm waiting for more equipment to expand my network. 
+This is still ongoing project and currently I'm waiting for more equipment to expand my network.
+For now I've used Cisco switch and routers to segment my network. I also created my own UTP patchcords and crimped RJ45 connectors according to T568B standard.
 Currently all services are running on multiple Raspberry Pi devices:
   - Honeypot
   - Web server
   - Network-Attached Storage
   - CTF lab
+  - Tor proxy router
+  - Pi-hole
     
 More about them:
 <br clear="right"/>
@@ -16,7 +19,7 @@ More about them:
 
 <img align="right" src="img/honey3.jpg">
 
-- Honeypot (RPi Zero 2)		- Ubuntu server connected to Internet to catch common and automated scans or indicators of compromise. Runs listener that spoof signatures and keeps open ports for FTP, SSH, Telnet, VNC, RDP protocols. Configured PSAD and Snort in IDS mode, logs any attacks attempts, while Splunk forwarder sends logs to indexer hosted on my PC. On average, honeypot detects approximately 20000 malicious activities per day with SSH password spraying attacks on the lead. Most attacks come from China, United Kingdom and India.
+- Honeypot (RPi 3B)		- Ubuntu server connected to Internet to catch common and automated scans or indicators of compromise. Runs listener that spoof signatures and keeps open ports for FTP, SSH, Telnet, VNC, RDP protocols. Configured PSAD and Snort in IDS mode, logs any attacks attempts, while Splunk forwarder sends logs to indexer hosted on my PC. On average, honeypot detects approximately 20000 malicious activities per day with SSH password spraying attacks on the lead. Most attacks come from China, United Kingdom and India.
 
 <br clear="right"/>
 
@@ -45,3 +48,19 @@ More about them:
 - CTF lab (RPi 4B)    - Kali Linux machine for solving CTF challenges, configured for remote access via RDP or VNC. Firewalld, Snort and Splunk have been configured for additional security.
 
 ![ctf](img/ctf.jpg?raw=true "ctf")
+
+
+
+------------
+
+- Tor router (RPi 3B)    - Proxy router for evading pervasive surveillance and hidding my activities inside tor network that utilizes onion routing. Using Nyx for monitoring Tor network status and traffic.
+
+![tor](img/tor.JPG?raw=true "tor")
+
+
+
+------------
+
+- Pi-hole (RPi Zero)    - Private DNS server that blocks internet advertisements and tracking domains.
+
+![tor](img/pihole.JPG?raw=true "tor")
